@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Brightspace Grade Helper",
+  "version": "0.2.0",
+  "description": "All your USC Brightspace assignments and grades on one page.",
+  "permissions": ["offscreen"],
+  "host_permissions": ["https://brightspace.usc.edu/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Brightspace dashboard"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://brightspace.usc.edu/d2l/lms/dropbox/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["checkview.js", "checkview.css"],
+      "matches": ["https://brightspace.usc.edu/*"]
+    }
+  ]
+}

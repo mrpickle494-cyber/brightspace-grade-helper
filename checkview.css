@@ -1,0 +1,76 @@
+/* Submission-check badge and details. Used on the dashboard and inside the
+   banner on Brightspace pages, so every color has a fallback. */
+
+.check { margin-top: 4px; font-size: 13px; }
+
+.check-summary {
+  display: inline-block;
+  max-width: 100%;
+  padding: 2px 8px;
+  border: 1px solid var(--border, #e3e6ea);
+  border-radius: 6px;
+  background: var(--card, #fff);
+  color: var(--text, #1c1f24);
+  font: inherit;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+button.check-summary { cursor: pointer; }
+button.check-summary:hover { border-color: var(--muted, #6b7280); }
+
+.check-bad .check-summary,
+.check-none .check-summary {
+  background: var(--red-bg, #fdecea);
+  border-color: transparent;
+  color: var(--red, #d92d20);
+  font-weight: 600;
+}
+.check-warn .check-summary { border-left: 3px solid #d4a017; }
+.check-ok .check-summary { border-left: 3px solid var(--green, #1a7f37); }
+
+.check-details {
+  margin-top: 6px;
+  padding: 10px;
+  border: 1px solid var(--border, #e3e6ea);
+  border-radius: 6px;
+  background: var(--bg, #f6f7f9);
+  color: var(--text, #1c1f24);
+}
+.check-details[hidden] { display: none; }
+.check-note { margin: 0 0 8px; color: var(--muted, #6b7280); font-size: 12px; }
+.check-note:last-child { margin: 8px 0 0; }
+
+.check-table-wrap { overflow-x: auto; }
+.check-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.check-table th,
+.check-table td {
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--border, #e3e6ea);
+  text-align: left;
+  vertical-align: top;
+}
+.check-table th { color: var(--muted, #6b7280); font-weight: 600; }
+.check-row-bad td { color: var(--red, #d92d20); }
+
+.check-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+@media (max-width: 600px) {
+  .check-compare { grid-template-columns: 1fr; }
+}
+.check-compare strong { font-size: 12px; }
+.check-compare pre {
+  margin: 4px 0 0;
+  max-height: 160px;
+  overflow: auto;
+  padding: 6px;
+  border-radius: 4px;
+  background: var(--card, #fff);
+  border: 1px solid var(--border, #e3e6ea);
+  font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}

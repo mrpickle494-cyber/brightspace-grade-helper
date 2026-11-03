@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brightspace Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="checkview.css">
+</head>
+<body>
+  <header>
+    <div>
+      <h1>Brightspace Dashboard</h1>
+      <p id="greeting" class="muted">Loading…</p>
+    </div>
+    <div class="toolbar">
+      <div class="drop">
+        <button id="tomorrow-toggle" type="button" aria-expanded="false" aria-controls="tomorrow-panel">Due tomorrow ▾</button>
+        <div id="tomorrow-panel" class="drop-panel" hidden>
+          <div class="drop-head">
+            <div>
+              <strong>Due tomorrow</strong>
+              <span id="tomorrow-day" class="muted"></span>
+            </div>
+            <button id="tomorrow-refresh" type="button">Refresh</button>
+          </div>
+          <p id="tomorrow-status" class="drop-status muted"></p>
+          <ul id="tomorrow-problems" class="drop-problems"></ul>
+          <ul id="tomorrow-list" class="drop-list"></ul>
+          <p id="tomorrow-empty" class="drop-empty" hidden></p>
+        </div>
+      </div>
+      <div class="drop">
+        <button id="tests-toggle" type="button" aria-expanded="false" aria-controls="tests-panel">Tests &amp; quizzes ▾</button>
+        <div id="tests-panel" class="drop-panel" hidden>
+          <div class="drop-head">
+            <div>
+              <strong>Tests &amp; quizzes</strong>
+              <span id="tests-day" class="muted"></span>
+            </div>
+            <button id="tests-refresh" type="button">Refresh</button>
+          </div>
+          <p id="tests-status" class="drop-status muted"></p>
+          <ul id="tests-problems" class="drop-problems"></ul>
+          <ul id="tests-list" class="drop-list"></ul>
+          <p id="tests-empty" class="drop-empty" hidden></p>
+        </div>
+      </div>
+      <div class="drop">
+        <button id="checks-toggle" type="button" aria-expanded="false" aria-controls="checks-panel">Check my submissions ▾</button>
+        <div id="checks-panel" class="drop-panel" hidden>
+          <div class="drop-head">
+            <div>
+              <strong>Submission check</strong>
+              <span id="checks-day" class="muted"></span>
+            </div>
+            <button id="checks-refresh" type="button">Refresh</button>
+          </div>
+          <p id="checks-status" class="drop-status muted"></p>
+          <ul id="checks-problems" class="drop-problems"></ul>
+          <ul id="checks-list" class="drop-list"></ul>
+          <p id="checks-empty" class="drop-empty" hidden></p>
+        </div>
+      </div>
+      <span id="updated" class="muted"></span>
+      <button id="refresh" type="button">Refresh</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="login" class="notice" hidden>
+      <p>You're not logged in to Brightspace in Chrome.</p>
+      <a class="button" href="https://brightspace.usc.edu/d2l/login" target="_blank">Log in to Brightspace</a>
+      <p class="muted">After logging in, come back and click Refresh.</p>
+    </div>
+
+    <p id="error" class="error" hidden></p>
+
+    <ul id="classes" class="classes"></ul>
+
+    <section id="week" class="week" hidden>
+      <h2>Next 7 days</h2>
+      <div id="week-days" class="week-days"></div>
+    </section>
+  </main>
+
+  <footer class="muted">
+    <details>
+      <summary>Data sources</summary>
+      <ul id="sources"></ul>
+    </details>
+  </footer>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+</html>
